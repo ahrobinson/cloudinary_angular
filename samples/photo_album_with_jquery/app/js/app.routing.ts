@@ -1,27 +1,21 @@
 import { ModuleWithProviders } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { HeroesComponent } from './heroes.component';
-import { DashboardComponent } from './dashboard.component';
-import { HeroDetailComponent } from './hero-detail.component';
+import { PhotoListComponent } from './photo-list.component';
 
 const appRoutes: Routes = [
     {
-        path: 'heroes',
-        component: HeroesComponent
+        path: 'photos',
+        component: PhotoListComponent
     },
-    {
-        path: 'dashboard',
-        component: DashboardComponent
-    },
+    // {
+    //     path: 'photos/new',
+    //     component: DashboardComponent
+    // },
     {
         path: '',
-        redirectTo: '/dashboard',
+        redirectTo: '/photos',
         pathMatch: 'full'
-    },
-    {
-        path: 'detail/:id',
-        component: HeroDetailComponent
     }
 ];
 

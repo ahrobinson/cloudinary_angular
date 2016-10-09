@@ -9,27 +9,21 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var http_1 = require('@angular/http');
 var cloudinary_service_1 = require('./cloudinary.service');
-var PhotoAlbum = (function () {
-    function PhotoAlbum(http, cloudinary) {
-        this.http = http;
+var CloudinaryImageDirective = (function () {
+    function CloudinaryImageDirective(el, renderer, cloudinary) {
         this.cloudinary = cloudinary;
+        renderer.setElementStyle(el.nativeElement, 'backgroundColor', 'yellow');
+        renderer.setText(el.nativeElement, cloudinary.getText());
+        console.log(cloudinary.getInstance().url('myphotoalbum', { format: 'json', type: 'list' }));
     }
-    PhotoAlbum.prototype.get = function (id) {
-        // instead of maintaining the list of images, we rely on the 'myphotoalbum' tag
-        // and simply retrieve a list of all images with that tag.
-        var url = this.cloudinary.getInstance().url('myphotoalbum', { format: 'json', type: 'list' })
-            + "?" + Math.ceil(new Date().getTime() / 1000);
-        return this.http
-            .get(url)
-            .map(function (res) { return res.json().resources; });
-    };
-    PhotoAlbum = __decorate([
-        core_1.Injectable(), 
-        __metadata('design:paramtypes', [http_1.Http, cloudinary_service_1.Cloudinary])
-    ], PhotoAlbum);
-    return PhotoAlbum;
+    CloudinaryImageDirective = __decorate([
+        core_1.Directive({
+            selector: 'cl-image'
+        }), 
+        __metadata('design:paramtypes', [core_1.ElementRef, core_1.Renderer, cloudinary_service_1.Cloudinary])
+    ], CloudinaryImageDirective);
+    return CloudinaryImageDirective;
 }());
-exports.PhotoAlbum = PhotoAlbum;
-//# sourceMappingURL=photo-album.service.js.map
+exports.CloudinaryImageDirective = CloudinaryImageDirective;
+//# sourceMappingURL=cloudinary-image.directive.js.map

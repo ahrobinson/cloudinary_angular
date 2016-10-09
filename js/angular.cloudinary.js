@@ -176,5 +176,5 @@
       cloudinary.Util.assign(instance, cloudinary); // copy namespace to the service instance
       return instance;
     }];
-  });
+  } );
 });

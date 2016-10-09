@@ -1,6 +1,18 @@
 Cloudinary AngularJS Photo Album Sample
 =======================================
 
+
+Where we left off = 
+npm start will start the project.
+
+It serves a static page with [attribute directives](https://angular.io/docs/ts/latest/guide/attribute-directives.html) implemented for cl-image.
+It also initializes the global cloudinary object (set on the window by the Cloudinary JS lib).  
+TODO: Initialize cloudinary global object (used to be with cloudinaryProvider for v1)
+TODO: Implement a similar directive for cl-transformation.
+
+
+
+
 This sample project shows:
 
 1. How to use the Cloudinary AngularJS directives.

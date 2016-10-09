@@ -4,12 +4,28 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
+import { PhotoListComponent } from './photo-list.component';
+import { CloudinaryImageDirective } from './cloudinary-image.directive';
+
+import { Cloudinary } from './cloudinary.service';
+import { CloudinaryConfiguration } from './cloudinary-configuration.service';
+
+import { routing } from './app.routing';
 
 @NgModule({
   imports: [
-    BrowserModule
+    BrowserModule,
+    routing
   ],
-  declarations: [ AppComponent ],
+  declarations: [
+    AppComponent,
+    PhotoListComponent,
+    CloudinaryImageDirective
+  ],
+  providers: [
+    Cloudinary,
+    CloudinaryConfiguration
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
