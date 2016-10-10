@@ -10,20 +10,22 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var http_1 = require('@angular/http');
+require('rxjs/add/operator/toPromise');
 var cloudinary_service_1 = require('./cloudinary.service');
 var PhotoAlbum = (function () {
     function PhotoAlbum(http, cloudinary) {
         this.http = http;
         this.cloudinary = cloudinary;
     }
-    PhotoAlbum.prototype.get = function (id) {
+    PhotoAlbum.prototype.getPhotos = function () {
         // instead of maintaining the list of images, we rely on the 'myphotoalbum' tag
         // and simply retrieve a list of all images with that tag.
         var url = this.cloudinary.getInstance().url('myphotoalbum', { format: 'json', type: 'list' })
             + "?" + Math.ceil(new Date().getTime() / 1000);
         return this.http
             .get(url)
-            .map(function (res) { return res.json().resources; });
+            .toPromise()
+            .then(function (res) { return res.json().resources; });
     };
     PhotoAlbum = __decorate([
         core_1.Injectable(), 

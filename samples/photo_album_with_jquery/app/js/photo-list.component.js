@@ -11,12 +11,22 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
 var common_1 = require('@angular/common');
+var photo_album_service_1 = require('./photo-album.service');
+var cloudinary_image_source_directive_1 = require('./cloudinary-image-source.directive');
 var PhotoListComponent = (function () {
-    function PhotoListComponent(route, location) {
+    function PhotoListComponent(photoAlbum, route, location) {
+        this.photoAlbum = photoAlbum;
         this.route = route;
         this.location = location;
     }
     PhotoListComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.photos = [];
+        this.photoAlbum.getPhotos()
+            .then(function (photos) {
+            _this.photos = photos;
+            photos.forEach(function (photo) { return console.log('PhotoListComponent', photo.public_id); });
+        });
         this.route.params.forEach(function (params) {
             var id = +params['id']; // String to int
         });
@@ -29,8 +39,10 @@ var PhotoListComponent = (function () {
             moduleId: module.id,
             selector: 'photo-list',
             templateUrl: 'photo-list.component.html',
+            styleUrls: ['photo-list.component.css'],
+            providers: [photo_album_service_1.PhotoAlbum, cloudinary_image_source_directive_1.CloudinaryImageSourceDirective]
         }), 
-        __metadata('design:paramtypes', [router_1.ActivatedRoute, common_1.Location])
+        __metadata('design:paramtypes', [photo_album_service_1.PhotoAlbum, router_1.ActivatedRoute, common_1.Location])
     ], PhotoListComponent);
     return PhotoListComponent;
 }());

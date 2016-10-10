@@ -4,12 +4,12 @@
   <base href="/">
   <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
   <title>Photo Album</title>
-    <link type="text/css" rel="stylesheet" media="all" href="css/app.css">
+    <link type="text/css" rel="stylesheet" media="all" href="app/css/app.css">
     <link rel="shortcut icon"
-          cl-href="http://cloudinary.com/favicon.png" type="fetch" effect="sepia"/>
+          cl_href="http://cloudinary.com/favicon.png" type="fetch" effect="sepia"/>
 
-  <link rel="stylesheet" href="css/app.css">
-  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="app/css/app.css">
+  <link rel="stylesheet" href="app/css/animations.css">
 
   <script src="/node_modules/jquery/dist/jquery.js"></script>
   <!-- jquery file upload related. only needed if jquery file upload is used -->
@@ -37,7 +37,7 @@
 <body>
   <div id="logo">
       <!-- This will render the image fetched from a remote HTTP URL using Cloudinary -->
-      <cl-image public-id="http://cloudinary.com/images/logo.png" type="fetch"/>
+      <cl-image publicId="http://cloudinary.com/images/logo.png" type="fetch"/>
   </div>
   <div class="content">
     <div ng-view class="view-frame"></div>

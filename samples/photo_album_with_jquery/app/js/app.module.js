@@ -11,9 +11,12 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 /* App Module */
 var core_1 = require('@angular/core');
 var platform_browser_1 = require('@angular/platform-browser');
+var http_1 = require('@angular/http');
 var app_component_1 = require('./app.component');
 var photo_list_component_1 = require('./photo-list.component');
 var cloudinary_image_directive_1 = require('./cloudinary-image.directive');
+var cloudinary_transformation_directive_1 = require('./cloudinary-transformation.directive');
+var cloudinary_image_source_directive_1 = require('./cloudinary-image-source.directive');
 var cloudinary_service_1 = require('./cloudinary.service');
 var cloudinary_configuration_service_1 = require('./cloudinary-configuration.service');
 var app_routing_1 = require('./app.routing');
@@ -24,12 +27,15 @@ var AppModule = (function () {
         core_1.NgModule({
             imports: [
                 platform_browser_1.BrowserModule,
+                http_1.HttpModule,
                 app_routing_1.routing
             ],
             declarations: [
                 app_component_1.AppComponent,
                 photo_list_component_1.PhotoListComponent,
-                cloudinary_image_directive_1.CloudinaryImageDirective
+                cloudinary_image_source_directive_1.CloudinaryImageSourceDirective,
+                cloudinary_image_directive_1.CloudinaryImageDirective,
+                cloudinary_transformation_directive_1.CloudinaryTransformationDirective
             ],
             providers: [
                 cloudinary_service_1.Cloudinary,
