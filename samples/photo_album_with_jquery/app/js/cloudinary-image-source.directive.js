@@ -50,13 +50,10 @@ var CloudinaryImageSourceDirective = (function () {
         }
     };
     ;
-    __decorate([
-        core_1.Input(), 
-        __metadata('design:type', String)
-    ], CloudinaryImageSourceDirective.prototype, "cl_href", void 0);
     CloudinaryImageSourceDirective = __decorate([
         core_1.Directive({
-            selector: '[cl_href]'
+            selector: '[cl_href]',
+            inputs: ['cl_href']
         }), 
         __metadata('design:paramtypes', [core_1.ElementRef, core_1.Renderer, cloudinary_service_1.Cloudinary])
     ], CloudinaryImageSourceDirective);

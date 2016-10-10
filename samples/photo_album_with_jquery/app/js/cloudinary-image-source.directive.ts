@@ -4,13 +4,11 @@ import { Cloudinary } from './cloudinary.service';
 
 const ATTRIBUTE_PREFIX = 'ng-reflect-cl_'
 @Directive({
-  selector: '[cl_href]'
+  selector: '[cl_href]',
+  inputs: ['cl_href']
 })
 export class CloudinaryImageSourceDirective implements AfterViewInit {
   private attrName: string;
-
-  @Input() cl_href: string;
-
 
   constructor(private el: ElementRef, private renderer: Renderer, private cloudinary: Cloudinary) {
   }

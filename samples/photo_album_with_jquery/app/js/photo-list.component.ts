@@ -16,6 +16,7 @@ import { CloudinaryImageSourceDirective } from './cloudinary-image-source.direct
 export class PhotoListComponent implements OnInit {
 
   private photos: Photo[];
+  private shown: boolean = false;
 
   constructor(
     private photoAlbum: PhotoAlbum,

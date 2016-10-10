@@ -18,6 +18,7 @@ var PhotoListComponent = (function () {
         this.photoAlbum = photoAlbum;
         this.route = route;
         this.location = location;
+        this.shown = false;
     }
     PhotoListComponent.prototype.ngOnInit = function () {
         var _this = this;
