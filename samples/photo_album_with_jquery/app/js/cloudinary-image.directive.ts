@@ -5,7 +5,7 @@ import { CloudinaryTransformationDirective } from './cloudinary-transformation.d
 
 @Component({
   selector: 'cl-image',
-  inputs: ['publicId'],
+  inputs: ['public-id'],
   template: `
     <img #cloudinaryImage>
     <ng-content></ng-content>
@@ -20,7 +20,7 @@ export class CloudinaryImageDirective implements AfterViewInit {
   private transformations: QueryList<CloudinaryTransformationDirective>;
 
   ngAfterViewInit() {
-    this.loadImage(this.el.nativeElement.getAttribute('publicId') || this.el.nativeElement.getAttribute('ng-reflect-public-id'));
+    this.loadImage(this.el.nativeElement.getAttribute('public-id') || this.el.nativeElement.getAttribute('ng-reflect-public-id'));
   }
 
   loadImage(publicId: string) {

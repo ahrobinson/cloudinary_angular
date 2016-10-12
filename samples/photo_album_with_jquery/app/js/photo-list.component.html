@@ -1,7 +1,7 @@
 <div id="posterframe">
   <!-- This will render the fetched Facebook profile picture using Cloudinary according to the
   requested transformations. This also shows how to chain transformations -->
-  <cl-image publicId="officialchucknorrispage" type="facebook" angle="20">
+  <cl-image [attr.public-id]="'officialchucknorrispage'" type="facebook" angle="20">
     <cl-transformation effect="art:incognito"></cl-transformation>
     <cl-transformation format="png" height="95" width="95" crop="thumb" gravity="face" radius="20">
     </cl-transformation>
@@ -34,7 +34,7 @@
     <!-- | orderBy:'version':true -->
     <h2>{{photo.context.custom.photo}}</h2>
     <a [cl_href]="photo.public_id" format="jpg" target="_blank">
-      <cl-image publicId="{{photo.public_id}}" class="thumbnail inline" width="150" height="150" crop="fit" quality="80" format="jpg">
+      <cl-image [attr.public-id]="photo.public_id" class="thumbnail inline" width="150" height="150" crop="fit" quality="80" format="jpg">
       </cl-image>
     </a>
     <div class="less_info">
@@ -46,7 +46,7 @@
         <tr>
           <td>
             <div class="thumbnail_holder">
-              <cl-image publicId="{{photo.public_id}}" class="thumbnail inline" crop="fill" height="150" width="150" radius="10" format="jpg">
+              <cl-image [attr.public-id]="photo.public_id" class="thumbnail inline" crop="fill" height="150" width="150" radius="10" format="jpg">
               </cl-image>
             </div>
             <table class="info">
@@ -71,7 +71,7 @@
           </td>
           <td>
             <div class="thumbnail_holder">
-              <cl-image publicId="{{photo.public_id}}" class="thumbnail inline" crop="scale" height="150" width="150" format="jpg">
+              <cl-image [attr.public-id]="photo.public_id" class="thumbnail inline" crop="scale" height="150" width="150" format="jpg">
               </cl-image>
             </div>
             <table class="info">
@@ -92,7 +92,7 @@
           </td>
           <td>
             <div class="thumbnail_holder">
-              <cl-image publicId="{{photo.public_id}}" class="thumbnail inline" crop="fit" height="150" width="150" format="jpg">
+              <cl-image [attr.public-id]="photo.public_id" class="thumbnail inline" crop="fit" height="150" width="150" format="jpg">
               </cl-image>
             </div>
             <table class="info">
@@ -113,7 +113,7 @@
           </td>
           <td>
             <div class="thumbnail_holder">
-              <cl-image publicId="{{photo.public_id}}" class="thumbnail inline" crop="thumb" gravity="face" height="150" width="150" format="jpg">
+              <cl-image [attr.public-id]="photo.public_id" class="thumbnail inline" crop="thumb" gravity="face" height="150" width="150" format="jpg">
               </cl-image>
             </div>
             <table class="info">
@@ -138,7 +138,7 @@
           </td>
           <td>
             <div class="thumbnail_holder">
-              <cl-image publicId="{{photo.public_id}}" class="thumbnail inline" angle="20" format="jpg">
+              <cl-image [attr.public-id]="photo.public_id" class="thumbnail inline" angle="20" format="jpg">
                 <cl-transformation height="150" width="150" crop="fill" gravity="north" effect="sepia" radius="20">
                 </cl-transformation>
               </cl-image>

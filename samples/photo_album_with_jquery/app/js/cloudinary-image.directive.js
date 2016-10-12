@@ -17,7 +17,7 @@ var CloudinaryImageDirective = (function () {
         this.cloudinary = cloudinary;
     }
     CloudinaryImageDirective.prototype.ngAfterViewInit = function () {
-        this.loadImage(this.el.nativeElement.getAttribute('publicId') || this.el.nativeElement.getAttribute('ng-reflect-public-id'));
+        this.loadImage(this.el.nativeElement.getAttribute('public-id') || this.el.nativeElement.getAttribute('ng-reflect-public-id'));
     };
     CloudinaryImageDirective.prototype.loadImage = function (publicId) {
         var _this = this;
@@ -55,7 +55,7 @@ var CloudinaryImageDirective = (function () {
     CloudinaryImageDirective = __decorate([
         core_1.Component({
             selector: 'cl-image',
-            inputs: ['publicId'],
+            inputs: ['public-id'],
             template: "\n    <img #cloudinaryImage>\n    <ng-content></ng-content>\n  "
         }), 
         __metadata('design:paramtypes', [core_1.ElementRef, core_1.Renderer, cloudinary_service_1.Cloudinary])
