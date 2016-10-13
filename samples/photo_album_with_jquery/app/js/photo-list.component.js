@@ -18,18 +18,13 @@ var PhotoListComponent = (function () {
         this.photoAlbum = photoAlbum;
         this.route = route;
         this.location = location;
-        this.shown = false;
     }
     PhotoListComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.photos = [];
-        this.photoAlbum.getPhotos()
+        this.photoAlbum.getPhotos() // Try to use promise directly instead of copying the state here
             .then(function (photos) {
             _this.photos = photos;
-            photos.forEach(function (photo) { return console.log('PhotoListComponent', photo.public_id); });
-        });
-        this.route.params.forEach(function (params) {
-            var id = +params['id']; // String to int
         });
     };
     PhotoListComponent.prototype.goBack = function () {

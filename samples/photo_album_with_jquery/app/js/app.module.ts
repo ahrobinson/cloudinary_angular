@@ -6,6 +6,7 @@ import { HttpModule }    from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { PhotoListComponent } from './photo-list.component';
+import { PhotoUploadJqueryComponent } from './photo-upload-jquery.component';
 import { CloudinaryImageDirective } from './cloudinary-image.directive';
 import { CloudinaryTransformationDirective } from './cloudinary-transformation.directive';
 import { CloudinaryImageSourceDirective } from './cloudinary-image-source.directive';
@@ -24,6 +25,7 @@ import { routing } from './app.routing';
   declarations: [
     AppComponent,
     PhotoListComponent,
+    PhotoUploadJqueryComponent,
     CloudinaryImageSourceDirective,
     CloudinaryImageDirective,
     CloudinaryTransformationDirective

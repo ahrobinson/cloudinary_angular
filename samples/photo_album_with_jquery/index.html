@@ -37,10 +37,9 @@
 <body>
   <div id="logo">
       <!-- This will render the image fetched from a remote HTTP URL using Cloudinary -->
-      <cl-image [attr.public-id]="http://cloudinary.com/images/logo.png" type="fetch"/>
+      <cl-image [attr.public-id]="'http://cloudinary.com/images/logo.png'" type="fetch"/>
   </div>
   <div class="content">
-    <div ng-view class="view-frame"></div>
   </div>  
 </body>
 </html>

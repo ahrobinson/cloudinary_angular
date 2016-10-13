@@ -14,6 +14,7 @@ var platform_browser_1 = require('@angular/platform-browser');
 var http_1 = require('@angular/http');
 var app_component_1 = require('./app.component');
 var photo_list_component_1 = require('./photo-list.component');
+var photo_upload_jquery_component_1 = require('./photo-upload-jquery.component');
 var cloudinary_image_directive_1 = require('./cloudinary-image.directive');
 var cloudinary_transformation_directive_1 = require('./cloudinary-transformation.directive');
 var cloudinary_image_source_directive_1 = require('./cloudinary-image-source.directive');
@@ -33,6 +34,7 @@ var AppModule = (function () {
             declarations: [
                 app_component_1.AppComponent,
                 photo_list_component_1.PhotoListComponent,
+                photo_upload_jquery_component_1.PhotoUploadJqueryComponent,
                 cloudinary_image_source_directive_1.CloudinaryImageSourceDirective,
                 cloudinary_image_directive_1.CloudinaryImageDirective,
                 cloudinary_transformation_directive_1.CloudinaryTransformationDirective

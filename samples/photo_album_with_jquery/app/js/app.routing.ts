@@ -2,16 +2,17 @@ import { ModuleWithProviders } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { PhotoListComponent } from './photo-list.component';
+import { PhotoUploadJqueryComponent } from './photo-upload-jquery.component';
 
 const appRoutes: Routes = [
     {
         path: 'photos',
         component: PhotoListComponent
     },
-    // {
-    //     path: 'photos/new',
-    //     component: DashboardComponent
-    // },
+    {
+        path: 'photos/new',
+        component: PhotoUploadJqueryComponent
+    },
     {
         path: '',
         redirectTo: '/photos',

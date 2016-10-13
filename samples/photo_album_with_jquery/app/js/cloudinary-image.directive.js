@@ -21,6 +21,7 @@ var CloudinaryImageDirective = (function () {
     };
     CloudinaryImageDirective.prototype.loadImage = function (publicId) {
         var _this = this;
+        console.log('loadImage', publicId);
         var nativeElement = this.el.nativeElement;
         var cloudinary = this.cloudinary.getInstance();
         var img = nativeElement.children[0];
@@ -29,11 +30,9 @@ var CloudinaryImageDirective = (function () {
             options.transformation = [];
             // Support chained transformations
             this.transformations.forEach(function (transformation) {
-                console.log('transformation', transformation);
                 options.transformation.push(_this.cloudinary.toCloudinaryAttributes(transformation.getAttributes(), /^[^$]/));
             });
         }
-        console.log('loadImage', this.transformations);
         if (options.responsive === "" || options.responsive === "true" || options.responsive === true) {
             options.responsive = true;
         }

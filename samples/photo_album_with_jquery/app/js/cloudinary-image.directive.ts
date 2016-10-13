@@ -24,6 +24,7 @@ export class CloudinaryImageDirective implements AfterViewInit {
   }
 
   loadImage(publicId: string) {
+    console.log('loadImage', publicId);
     const nativeElement = this.el.nativeElement;
     const cloudinary = this.cloudinary.getInstance();
     const img = nativeElement.children[0];
@@ -32,12 +33,9 @@ export class CloudinaryImageDirective implements AfterViewInit {
       options.transformation = [];
       // Support chained transformations
       this.transformations.forEach(transformation => {
-        console.log('transformation', transformation);
         options.transformation.push(this.cloudinary.toCloudinaryAttributes(transformation.getAttributes(), /^[^$]/));
       });
     }
-    console.log('loadImage', this.transformations);
-
 
     if (options.responsive === "" || options.responsive === "true" || options.responsive === true) {
       options.responsive = true;

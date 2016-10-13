@@ -16,24 +16,18 @@ import { CloudinaryImageSourceDirective } from './cloudinary-image-source.direct
 export class PhotoListComponent implements OnInit {
 
   private photos: Photo[];
-  private shown: boolean = false;
 
   constructor(
     private photoAlbum: PhotoAlbum,
     private route: ActivatedRoute,
     private location: Location
-  ) { 
-  }
+  ) { }
 
   ngOnInit(): void {
     this.photos = [];
-    this.photoAlbum.getPhotos()
+    this.photoAlbum.getPhotos() // Try to use promise directly instead of copying the state here
     .then(photos => {
       this.photos = photos;
-      photos.forEach(photo=>console.log('PhotoListComponent', photo.public_id))
-    });
-    this.route.params.forEach((params: Params) => {
-      let id = +params['id']; // String to int
     });
   }
 
