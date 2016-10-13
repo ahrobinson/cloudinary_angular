@@ -24,7 +24,6 @@
 	</form>
 	<h2>Status</h2>
 	<div class="file" *ngFor="let file of files">
-		{{file | json}}
 		<h3>{{file.name}}</h3>
 		<div class="status">{{file.status}}</div>
 		<div class="progress-bar">

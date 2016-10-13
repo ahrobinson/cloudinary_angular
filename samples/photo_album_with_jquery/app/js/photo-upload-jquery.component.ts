@@ -77,7 +77,10 @@ export class PhotoUploadJqueryComponent implements OnInit {
                 var file = findFile(name);
                 file.progress = Math.round((data.loaded * 100.0) / data.total);
                 file.status = "Uploading... " + file.progress + "%";
-                photoUploadComponent.files.push(file);
+                if (!file.name) {
+                    file.name = name;
+                    photoUploadComponent.files.push(file);
+                }
             })
             .on("cloudinaryprogressall", function (e, data) {
                 this.progress = Math.round((data.loaded * 100.0) / data.total);
@@ -89,15 +92,19 @@ export class PhotoUploadJqueryComponent implements OnInit {
                 this.result = data.result;
                 var name = data.files[0].name;
                 var file = findFile(name);
-                file.name = name;
                 file.result = data.result;
-                photoUploadComponent.files.push(file);
+                if (!file.name) {
+                    file.name = name;
+                    photoUploadComponent.files.push(file);
+                }
                 // $rootScope.photos.push(data.result);
             }).on("cloudinaryfail", function (e, data) {
                 var file = findFile(name);
-                file.name = name;
                 file.result = data.result;
-                photoUploadComponent.files.push(file);
+                if (!file.name) {
+                    file.name = name;
+                    photoUploadComponent.files.push(file);
+                }
             });
     }
 }
