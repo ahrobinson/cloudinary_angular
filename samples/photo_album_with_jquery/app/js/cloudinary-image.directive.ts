@@ -7,7 +7,7 @@ import { CloudinaryTransformationDirective } from './cloudinary-transformation.d
   selector: 'cl-image',
   inputs: ['public-id'],
   template: `
-    <img #cloudinaryImage>
+    <img>
     <ng-content></ng-content>
   `
 })
@@ -24,7 +24,6 @@ export class CloudinaryImageDirective implements AfterViewInit {
   }
 
   loadImage(publicId: string) {
-    console.log('loadImage', publicId);
     const nativeElement = this.el.nativeElement;
     const cloudinary = this.cloudinary.getInstance();
     const img = nativeElement.children[0];

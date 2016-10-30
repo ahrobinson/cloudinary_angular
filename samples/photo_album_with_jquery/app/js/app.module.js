@@ -18,6 +18,7 @@ var photo_upload_jquery_component_1 = require('./photo-upload-jquery.component')
 var cloudinary_image_directive_1 = require('./cloudinary-image.directive');
 var cloudinary_transformation_directive_1 = require('./cloudinary-transformation.directive');
 var cloudinary_image_source_directive_1 = require('./cloudinary-image-source.directive');
+var photo_album_service_1 = require('./photo-album.service');
 var cloudinary_service_1 = require('./cloudinary.service');
 var cloudinary_configuration_service_1 = require('./cloudinary-configuration.service');
 var app_routing_1 = require('./app.routing');
@@ -39,9 +40,15 @@ var AppModule = (function () {
                 cloudinary_image_directive_1.CloudinaryImageDirective,
                 cloudinary_transformation_directive_1.CloudinaryTransformationDirective
             ],
+            exports: [
+                cloudinary_image_source_directive_1.CloudinaryImageSourceDirective,
+                cloudinary_image_directive_1.CloudinaryImageDirective,
+                cloudinary_transformation_directive_1.CloudinaryTransformationDirective
+            ],
             providers: [
                 cloudinary_service_1.Cloudinary,
-                cloudinary_configuration_service_1.CloudinaryConfiguration
+                cloudinary_configuration_service_1.CloudinaryConfiguration,
+                photo_album_service_1.PhotoAlbum
             ],
             bootstrap: [app_component_1.AppComponent]
         }), 

@@ -1,45 +1,44 @@
 <!doctype html>
 <html lang="en" ng-app="photoAlbumApp">
+
 <head>
-  <base href="/">
-  <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
-  <title>Photo Album</title>
-    <link type="text/css" rel="stylesheet" media="all" href="app/css/app.css">
-    <link rel="shortcut icon"
-          attr.cl-href="http://cloudinary.com/favicon.png" type="fetch" effect="sepia"/>
+	<base href="/">
+	<meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="shortcut icon" cl-href="http://cloudinary.com/favicon.png" type="fetch" effect="sepia" />
+	<title>Photo Album</title>
 
-  <link rel="stylesheet" href="app/css/app.css">
-  <link rel="stylesheet" href="app/css/animations.css">
+	<link type="text/css" rel="stylesheet" media="all" href="app/css/app.css">
 
-  <script src="/node_modules/jquery/dist/jquery.js"></script>
-  <!-- jquery file upload related. only needed if jquery file upload is used -->
-  <script src="/node_modules/blueimp-file-upload/js/vendor/jquery.ui.widget.js"></script>
-  <script src="/node_modules/blueimp-file-upload/js/jquery.iframe-transport.js"></script>
-  <script src="/node_modules/blueimp-file-upload/js/jquery.fileupload.js"></script>
-  <!-- end jquery file upload related -->
-  <script src="/node_modules/cloudinary-jquery-file-upload/cloudinary-jquery-file-upload.js"></script>
-  <!-- angular dependencies -->
-     <!-- Polyfill(s) for older browsers -->
-    <script src="node_modules/core-js/client/shim.min.js"></script>
-    <script src="node_modules/zone.js/dist/zone.js"></script>
-    <script src="node_modules/reflect-metadata/Reflect.js"></script>
-    <script src="node_modules/systemjs/dist/system.src.js"></script>
-    <!-- 2. Configure SystemJS -->
-    <script src="app/systemjs.config.js"></script>
-    <script>
+	<link rel="stylesheet" href="app/css/app.css">
+	<link rel="stylesheet" href="app/css/animations.css">
+
+	<script src="/node_modules/jquery/dist/jquery.js"></script>
+	<!-- jquery file upload related. only needed if jquery file upload is used -->
+	<script src="/node_modules/blueimp-file-upload/js/vendor/jquery.ui.widget.js"></script>
+	<script src="/node_modules/blueimp-file-upload/js/jquery.iframe-transport.js"></script>
+	<script src="/node_modules/blueimp-file-upload/js/jquery.fileupload.js"></script>
+	<!-- end jquery file upload related -->
+	<script src="/node_modules/cloudinary-jquery-file-upload/cloudinary-jquery-file-upload.js"></script>
+	<!-- angular dependencies -->
+	<!-- Polyfill(s) for older browsers -->
+	<script src="node_modules/core-js/client/shim.min.js"></script>
+	<script src="node_modules/zone.js/dist/zone.js"></script>
+	<script src="node_modules/reflect-metadata/Reflect.js"></script>
+	<script src="node_modules/systemjs/dist/system.src.js"></script>
+	<!-- 2. Configure SystemJS -->
+	<script src="app/systemjs.config.js"></script>
+	<script>
       System.import('app').catch(function(err){ console.error(err); });
     </script>
-  
-  <!-- cloudinary angular plugin -->
-<!--TODO-->
-  <!--<script src="/node_modules/angular-cloudinary/angular-cloudinary.js"></script>-->
+
+	<!-- cloudinary angular plugin -->
+	<!--TODO-->
+	<!--<script src="/node_modules/angular-cloudinary/angular-cloudinary.js"></script>-->
 </head>
+
 <body>
-  <div id="logo">
-      <!-- This will render the image fetched from a remote HTTP URL using Cloudinary -->
-      <cl-image [attr.public-id]="'http://cloudinary.com/images/logo.png'" type="fetch"/>
-  </div>
-  <div class="content">
-  </div>  
+	<div class="content">
+	</div>
 </body>
+
 </html>

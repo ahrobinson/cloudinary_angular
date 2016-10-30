@@ -9,36 +9,34 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var router_1 = require('@angular/router');
-var common_1 = require('@angular/common');
 var photo_album_service_1 = require('./photo-album.service');
-var cloudinary_image_source_directive_1 = require('./cloudinary-image-source.directive');
 var PhotoListComponent = (function () {
-    function PhotoListComponent(photoAlbum, route, location) {
+    function PhotoListComponent(photoAlbum) {
         this.photoAlbum = photoAlbum;
-        this.route = route;
-        this.location = location;
+        this.errorOccurred = false;
     }
     PhotoListComponent.prototype.ngOnInit = function () {
-        var _this = this;
-        this.photos = [];
-        this.photoAlbum.getPhotos() // Try to use promise directly instead of copying the state here
-            .then(function (photos) {
-            _this.photos = photos;
-        });
+        this.photos = this.photoAlbum.getPhotos();
+        // this.subscription = this.photos.subscribe(
+        //   data => console.log('PhotoListComponent1', data),
+        //   err => {
+        //     this.errorOccurred = true;
+        //     console.log('PhotoListComponent2', err)
+        //   },
+        //   () => console.log('PhotoListComponent3', 'yay')
+        // );
     };
-    PhotoListComponent.prototype.goBack = function () {
-        this.location.back();
+    PhotoListComponent.prototype.ngOnDestroy = function () {
+        // this.subscription.unsubscribe();
     };
     PhotoListComponent = __decorate([
         core_1.Component({
             moduleId: module.id,
             selector: 'photo-list',
             templateUrl: 'photo-list.component.html',
-            styleUrls: ['photo-list.component.css'],
-            providers: [photo_album_service_1.PhotoAlbum, cloudinary_image_source_directive_1.CloudinaryImageSourceDirective]
+            styleUrls: ['photo-list.component.css']
         }), 
-        __metadata('design:paramtypes', [photo_album_service_1.PhotoAlbum, router_1.ActivatedRoute, common_1.Location])
+        __metadata('design:paramtypes', [photo_album_service_1.PhotoAlbum])
     ], PhotoListComponent);
     return PhotoListComponent;
 }());

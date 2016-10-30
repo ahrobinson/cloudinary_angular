@@ -21,7 +21,6 @@ var CloudinaryImageDirective = (function () {
     };
     CloudinaryImageDirective.prototype.loadImage = function (publicId) {
         var _this = this;
-        console.log('loadImage', publicId);
         var nativeElement = this.el.nativeElement;
         var cloudinary = this.cloudinary.getInstance();
         var img = nativeElement.children[0];
@@ -55,7 +54,7 @@ var CloudinaryImageDirective = (function () {
         core_1.Component({
             selector: 'cl-image',
             inputs: ['public-id'],
-            template: "\n    <img #cloudinaryImage>\n    <ng-content></ng-content>\n  "
+            template: "\n    <img>\n    <ng-content></ng-content>\n  "
         }), 
         __metadata('design:paramtypes', [core_1.ElementRef, core_1.Renderer, cloudinary_service_1.Cloudinary])
     ], CloudinaryImageDirective);

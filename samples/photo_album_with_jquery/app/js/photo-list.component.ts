@@ -1,37 +1,40 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Location } from '@angular/common';
+import { Observable, Subscription } from 'rxjs/Rx';
 
 import { PhotoAlbum } from './photo-album.service'
 import { Photo } from './photo'
-import { CloudinaryImageSourceDirective } from './cloudinary-image-source.directive';
 
 @Component({
   moduleId: module.id,
   selector: 'photo-list',
   templateUrl: 'photo-list.component.html',
-  styleUrls: ['photo-list.component.css'],
-  providers: [PhotoAlbum, CloudinaryImageSourceDirective]
+  styleUrls: ['photo-list.component.css']
 })
-export class PhotoListComponent implements OnInit {
+export class PhotoListComponent implements OnInit, OnDestroy {
 
-  private photos: Photo[];
+  private photos: Observable<Photo[]>;
+  private errorOccurred: boolean = false;
+  private subscription: Subscription;
 
   constructor(
-    private photoAlbum: PhotoAlbum,
-    private route: ActivatedRoute,
-    private location: Location
+    private photoAlbum: PhotoAlbum
   ) { }
 
   ngOnInit(): void {
-    this.photos = [];
-    this.photoAlbum.getPhotos() // Try to use promise directly instead of copying the state here
-    .then(photos => {
-      this.photos = photos;
-    });
+    this.photos = this.photoAlbum.getPhotos();
+    // this.subscription = this.photos.subscribe(
+    //   data => console.log('PhotoListComponent1', data),
+    //   err => {
+    //     this.errorOccurred = true;
+    //     console.log('PhotoListComponent2', err)
+    //   },
+    //   () => console.log('PhotoListComponent3', 'yay')
+    // );
   }
 
-  goBack(): void {
-    this.location.back();
+  ngOnDestroy(): void {
+    // this.subscription.unsubscribe();
   }
 }

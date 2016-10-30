@@ -2,7 +2,7 @@
 /* App Module */
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpModule }    from '@angular/http';
+import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { PhotoListComponent } from './photo-list.component';
@@ -10,6 +10,7 @@ import { PhotoUploadJqueryComponent } from './photo-upload-jquery.component';
 import { CloudinaryImageDirective } from './cloudinary-image.directive';
 import { CloudinaryTransformationDirective } from './cloudinary-transformation.directive';
 import { CloudinaryImageSourceDirective } from './cloudinary-image-source.directive';
+import { PhotoAlbum } from './photo-album.service';
 
 import { Cloudinary } from './cloudinary.service';
 import { CloudinaryConfiguration } from './cloudinary-configuration.service';
@@ -30,9 +31,15 @@ import { routing } from './app.routing';
     CloudinaryImageDirective,
     CloudinaryTransformationDirective
   ],
+  exports: [
+    CloudinaryImageSourceDirective,
+    CloudinaryImageDirective,
+    CloudinaryTransformationDirective
+  ],
   providers: [
     Cloudinary,
-    CloudinaryConfiguration
+    CloudinaryConfiguration,
+    PhotoAlbum
   ],
   bootstrap: [AppComponent]
 })

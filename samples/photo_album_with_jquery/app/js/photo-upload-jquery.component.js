@@ -102,8 +102,6 @@ var PhotoUploadJqueryComponent = (function () {
             moduleId: module.id,
             selector: 'photo-list',
             templateUrl: 'photo-upload-jquery.component.html',
-            //   styleUrls: ['photo-list.component.css'],
-            providers: [photo_album_service_1.PhotoAlbum]
         }), 
         __metadata('design:paramtypes', [photo_album_service_1.PhotoAlbum, router_1.ActivatedRoute, common_1.Location, cloudinary_service_1.Cloudinary])
     ], PhotoUploadJqueryComponent);
