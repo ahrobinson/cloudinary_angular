@@ -9,6 +9,9 @@ config.js
 samples/**/app/**/*.js
 samples/**/app/**/*.js.map
 
+# Ignore generated typings 
+typings/
+
 # Exclude required .js files
 !systemjs.config.js
 
