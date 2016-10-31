@@ -5,6 +5,12 @@ logs
 npm-debug.log*
 config.js
 
+# Ignore output of typescript compilation
+samples/**/app/**/*.js
+
+# Exclude required .js files
+!systemjs.config.js
+
 # Coverage directory used by tools like istanbul
 coverage
 
