@@ -7,6 +7,7 @@ config.js
 
 # Ignore output of typescript compilation
 samples/**/app/**/*.js
+samples/**/app/**/*.js.map
 
 # Exclude required .js files
 !systemjs.config.js
