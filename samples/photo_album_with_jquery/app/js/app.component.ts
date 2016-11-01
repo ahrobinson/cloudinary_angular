@@ -7,7 +7,7 @@ import { Cloudinary } from './cloudinary.service';
     template: `
         <div id="logo">
             <!-- This will render the image fetched from a remote HTTP URL using Cloudinary -->
-            <cl-image [attr.public-id]="'http://cloudinary.com/images/logo.png'" type="fetch"></cl-image>
+            <cl-image publicId="http://cloudinary.com/images/logo.png" type="fetch"></cl-image>
         </div>
         <router-outlet></router-outlet>
     `
@@ -30,7 +30,7 @@ export class AppComponent implements OnInit {
         var length = links.length;
         for (var i = 0; i < length; i++) {
             var link = links[i];
-            const clHref = link.getAttribute('cl-href');
+            const clHref = link.getAttribute('clHref');
             if (clHref) {
                 const href = this.cloudinary.getInstance().url(clHref, this.cloudinary.toCloudinaryAttributes(link.attributes));
                 link.setAttribute('href', href);

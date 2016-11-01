@@ -29,13 +29,13 @@
 	<script src="js/controllers.js"></script>
 	<script src="js/services.js"></script>
 
-	<link rel="shortcut icon" [cl_href]="'http://cloudinary.com/favicon.png'" type="fetch" effect="sepia" />
+	<link rel="shortcut icon" clHref="'http://cloudinary.com/favicon.png'" type="fetch" effect="sepia" />
 </head>
 
 <body>
 	<div id="logo">
 		<!-- This will render the image fetched from a remote HTTP URL using Cloudinary -->
-		<cl-image [attr.public-id]="'http://cloudinary.com/images/logo.png'" type="fetch" />
+		<cl-image publicId="http://cloudinary.com/images/logo.png" type="fetch" />
 	</div>
 	<div class="content">
 		<div ng-view class="view-frame"></div>
