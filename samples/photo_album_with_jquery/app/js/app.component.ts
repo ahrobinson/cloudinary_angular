@@ -7,7 +7,7 @@ import { Cloudinary } from './cloudinary.service';
     template: `
         <div id="logo">
             <!-- This will render the image fetched from a remote HTTP URL using Cloudinary -->
-            <cl-image publicId="http://cloudinary.com/images/logo.png" type="fetch"></cl-image>
+            <img clSrc="http://cloudinary.com/images/logo.png" type="fetch">
         </div>
         <router-outlet></router-outlet>
     `

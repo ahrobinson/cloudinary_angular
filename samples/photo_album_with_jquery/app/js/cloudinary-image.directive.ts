@@ -5,10 +5,7 @@ import { CloudinaryTransformationDirective } from './cloudinary-transformation.d
 
 @Component({
   selector: 'cl-image',
-  template: `
-    <img>
-    <ng-content></ng-content>
-  `
+  template: '<img>'
 })
 export class CloudinaryImageDirective implements AfterViewInit {
 
@@ -22,7 +19,6 @@ export class CloudinaryImageDirective implements AfterViewInit {
   private transformations: QueryList<CloudinaryTransformationDirective>;
 
   ngAfterViewInit() {
-    console.log(this.publicId);
     if (!this.publicId) {
       throw new Error('You must set the public id of the image to load, e.g. <cl-image publicId={{photo.public_id}}...></cl-image>');
     }
