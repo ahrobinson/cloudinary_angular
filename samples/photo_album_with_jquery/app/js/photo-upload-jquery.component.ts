@@ -9,8 +9,7 @@ import { Photo } from './photo'
 @Component({
     moduleId: module.id,
     selector: 'photo-list',
-    templateUrl: 'photo-upload-jquery.component.html',
-    //   styleUrls: ['photo-list.component.css']
+    templateUrl: 'photo-upload-jquery.component.html'
 })
 export class PhotoUploadJqueryComponent implements OnInit {
 
@@ -53,7 +52,7 @@ export class PhotoUploadJqueryComponent implements OnInit {
 
         const photoUploadComponent = this;
         this.widget = (<any>$(".cloudinary_fileupload"))
-            .unsigned_cloudinary_upload(this.cloudinary.getInstance().config().upload_preset,
+            .unsigned_cloudinary_upload(this.cloudinary.uploadPreset(),
             { tags: 'myphotoalbum', context: 'photo=' }, {
                 // Uncomment the following lines to enable client side image resizing and validation.
                 // Make sure cloudinary/processing is included the js file

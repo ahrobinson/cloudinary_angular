@@ -27,9 +27,8 @@ export class CloudinaryImageDirective implements AfterViewInit {
 
   loadImage(publicId: string) {
     const nativeElement = this.el.nativeElement;
-    const cloudinary = this.cloudinary.getInstance();
     const img = nativeElement.children[0];
-    const options = <any>this.cloudinary.toCloudinaryAttributes(nativeElement.attributes);
+    const options = this.cloudinary.toCloudinaryAttributes(nativeElement.attributes);
     if (this.transformations) {
       options.transformation = [];
       // Support chained transformations
@@ -41,11 +40,9 @@ export class CloudinaryImageDirective implements AfterViewInit {
     if (options.responsive === "" || options.responsive === "true" || options.responsive === true) {
       options.responsive = true;
     }
-    var url = cloudinary.url(publicId, options);
+    var url = this.cloudinary.url(publicId, options);
     if (options.responsive) {
-      cloudinary.Util.setData(img, "src", url);
-      cloudinary.cloudinary_update(img, options);
-      cloudinary.responsive(options, false);
+      this.cloudinary.responsive(url, img, options);
     } else {
       img.setAttribute('src', url);
     }

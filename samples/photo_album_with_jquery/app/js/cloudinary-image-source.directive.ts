@@ -42,7 +42,7 @@ export class CloudinaryImageSourceDirective implements AfterViewInit {
       throw new Error('Directive value is missing for clHref/clSrc/clSrcset')
     }
 
-    const attrValue = this.cloudinary.getInstance().url(propertyValue, this.cloudinary.toCloudinaryAttributes(this.el.nativeElement.attributes));
+    const attrValue = this.cloudinary.url(propertyValue, this.cloudinary.toCloudinaryAttributes(this.el.nativeElement.attributes));
     this.el.nativeElement.setAttribute(attrName, attrValue);
 
     // on IE, if "ng:src" directive declaration is used and "src" attribute doesn't exist

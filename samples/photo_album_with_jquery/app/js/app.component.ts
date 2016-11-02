@@ -32,7 +32,7 @@ export class AppComponent implements OnInit {
             var link = links[i];
             const clHref = link.getAttribute('clHref');
             if (clHref) {
-                const href = this.cloudinary.getInstance().url(clHref, this.cloudinary.toCloudinaryAttributes(link.attributes));
+                const href = this.cloudinary.url(clHref, this.cloudinary.toCloudinaryAttributes(link.attributes));
                 link.setAttribute('href', href);
             }
         }

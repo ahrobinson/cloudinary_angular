@@ -8,25 +8,35 @@ declare var jQuery: any;
 
 @Injectable()
 export class Cloudinary {
-    private instance;
-    constructor(private configuration: CloudinaryConfiguration) {  
+    nativeInstance: any;
+    constructor(private configuration: CloudinaryConfiguration) {
         if (cloudinary.CloudinaryJQuery && jQuery) {
             // cloudinary is attached to the global `jQuery` object
             jQuery.cloudinary.config(configuration.config());
-            this.instance = jQuery.cloudinary;
+            this.nativeInstance = jQuery.cloudinary;
         } else {
-            this.instance = new cloudinary.Cloudinary(configuration.config());
+            this.nativeInstance = new cloudinary.Cloudinary(configuration.config());
         }
-        cloudinary.Util.assign(this.instance, cloudinary); // copy namespace to the service instance
     }
 
-    getInstance() {
-        return this.instance;
+    url(...parameters): string {
+        return this.nativeInstance.url(...parameters);
     }
 
-    cloudinaryAttr = function(attr){
+    uploadPreset(): string {
+        return this.nativeInstance.config().upload_preset;
+    }
+
+    responsive(url, img, options): void {
+        this.nativeInstance.Util.setData(img, "src", url);
+        this.nativeInstance.cloudinary_update(img, options);
+        this.nativeInstance.responsive(options, false);
+
+    }
+
+    cloudinaryAttr = function (attr): string {
         if (attr.match(/cl[A-Z]/)) attr = attr.substring(2);
-        return attr.replace(/([a-z])([A-Z])/g,'$1_$2').toLowerCase();
+        return attr.replace(/([a-z])([A-Z])/g, '$1_$2').toLowerCase();
     };
 
     /**
@@ -36,7 +46,7 @@ export class Cloudinary {
      * @param {(RegExp|string)} [filter] - copy only attributes whose name matches the filter
      * @return {Object} attributes for cloudinary functions
      */
-    toCloudinaryAttributes = function (source, filter = undefined) {
+    toCloudinaryAttributes = function (source, filter = undefined): any {
         let attributes = {};
         const isNamedNodeMap = source && (source.constructor.name === "NamedNodeMap" || source instanceof NamedNodeMap);
         Object.keys(source).forEach(key => {
@@ -52,5 +62,4 @@ export class Cloudinary {
         });
         return attributes;
     };
-
 }
